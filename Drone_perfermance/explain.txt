@@ -1,0 +1,2 @@
+When lifting the drone using two fishing string,  if the controller wokrs, the drone can stay in a non bias poster similar to the poster when place it on the ground.
+So from these two videos, in the final one we achieved a successful LQR controller.

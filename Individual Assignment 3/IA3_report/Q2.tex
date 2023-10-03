@@ -1,0 +1,26 @@
+\section{Problem 2}
+
+a) Mutual exclusion:
+
+\[G1: \square (\text{T1:use} \rightarrow \neg \text{T2:use}) \land \square (\text{T2:use} \rightarrow \neg \text{T1:use})\]
+
+b) Finite time of usage:
+
+\[G2: \square (\text{T1:use} \rightarrow \lozenge \text{T1:release}) \land \square (\text{T2:use} \rightarrow \lozenge \text{T2:release})\]
+
+c) Absence of individual starvation:
+
+\[G3: \square (\text{T1:request} \rightarrow \lozenge \text{T1:use}) \land \square (\text{T2:request} \rightarrow \lozenge \text{T2:use})\]
+
+d) Absence of blocking:
+
+\[G4: \square (\text{T1:request}) \land \square (\text{T2:request})\]
+
+e) Alternating:
+
+\begin{equation}
+    \begin{aligned}
+        G5: \square ((\text{T1:use} \rightarrow \bigcirc \text{T1:release}) \land (\text{T1:release} \rightarrow \bigcirc \text{T1:use})\\
+\land (\text{T2:use} \rightarrow \bigcirc \text{T2:release}) \land (\text{T2:release} \rightarrow \bigcirc \text{T2:use}))\nonumber
+    \end{aligned}
+\end{equation}

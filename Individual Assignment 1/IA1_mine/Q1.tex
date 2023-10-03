@@ -1,0 +1,89 @@
+\section{Problem 1}
+
+\subsection{Prove}
+
+Given the transformation matrix $^W\xi_B$, I renote it as:
+
+\begin{equation}
+    \begin{aligned}
+        ^W\xi_B &=\begin{bmatrix} R & d \\ \boldsymbol{0} & 1 \end{bmatrix}\\
+        R & = \begin{bmatrix} r11 & r12 & r13 \\ r21 & r22 & r23 \\r31 & r32 &r33 \end{bmatrix}\\
+        d & = \begin{bmatrix} t1 \\ t2 \\t3 \end{bmatrix}
+    \end{aligned}
+\end{equation}
+
+$R $is a rotation matrix and $d$ is a translation vector.
+
+Since $R$ is an orthogonal matrix, the inverse of the rotation matrix $R$ is its transpose, 
+
+\begin{equation}
+    \begin{aligned}
+        R^{-1} &= R^T\\
+        RR^T&=R^TR= \boldsymbol{I}
+    \end{aligned}
+\end{equation}
+
+Define a matrix $ H^-1 $ as :
+
+\begin{equation}
+    \begin{aligned}
+        H^{-1} &= \begin{bmatrix} R^T & -R^Td \\ \boldsymbol{0} & 1 \end{bmatrix} 
+    \end{aligned}
+\end{equation}
+
+And see the result of $ ^W\xi_B \times H^{-1} $:
+
+\begin{equation}
+    \begin{aligned}
+        ^W\xi_B \times H^{-1} = \begin{bmatrix} R & d \\ \boldsymbol{0} & 1 \end{bmatrix} \begin{bmatrix} R^T & -R^Td \\ \boldsymbol{0} & 1 \end{bmatrix} = \begin{bmatrix} RR^T & -RR^Td+d\\\boldsymbol{0} & 1 \end{bmatrix}=\boldsymbol{\begin{bmatrix} 1 &0\\0&1 \end{bmatrix}}
+    \end{aligned}
+\end{equation}
+
+which means:
+\begin{equation}
+    \begin{aligned}
+        ^B{\xi}_{W} = H^{-1} = \begin{bmatrix}
+            R^T & -R^T d \\
+            \mathbf{0} & 1
+            \end{bmatrix}
+    \end{aligned}
+\end{equation}
+
+Q.E.D.
+
+\subsection{Calculate}
+
+I select my $ ^B{\xi}_{W} $ and $ p_W $ and calculate through Matlab：
+\begin{lstlisting}
+    W_H_B = [ 0 0 1 1;
+    1 0 0 2;
+    0 1 0 3;
+    0 0 0 1 ];
+
+    p_W = [ 2; 2; 1; 1 ]
+
+    B_H_W = inv(W_H_B);
+    p_B = B_H_W * p_W
+
+\end{lstlisting}
+
+Output result:
+
+\begin{lstlisting}
+    p_W = 4×1    
+     2
+     2
+     1
+     1
+
+
+     p_B = 4×1    
+     0
+    -2
+     1
+     1
+
+\end{lstlisting}
+
+It show, the p point in $W$ coordinate has position as $[2\  2\  1]$, and p in $B$ coordinate has position as $[0\  -2\  1]$.
+

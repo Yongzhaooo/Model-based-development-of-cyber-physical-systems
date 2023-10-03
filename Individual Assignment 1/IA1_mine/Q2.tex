@@ -1,0 +1,32 @@
+\section{Problem 2}
+
+
+\begin{equation}
+    \begin{aligned}
+        Ryxz&=RotyRotxRotz=\\
+        &\begin{bmatrix}
+            cos(\psi)cos(\theta) + sin(\phi)sin(\psi)sin(\theta) & cos(\psi)sin(\phi)sin(\theta) - cos(\theta)sin(\psi) & cos(\phi)sin(\theta) \\
+            cos(\phi)sin(\psi) & cos(\phi)cos(\psi) & -sin(\phi) \\
+            cos(\theta)sin(\phi)sin(\psi) - cos(\psi)sin(\theta) & sin(\psi)sin(\theta) + cos(\psi)cos(\theta)sin(\phi) & cos(\phi)cos(\theta) \\
+            \end{bmatrix} 
+    \end{aligned}\nonumber
+\end{equation}
+
+Extract the last column:
+\[\begin{bmatrix}
+L1 = \cos(\phi)\sin(\theta) \\
+L2= -\sin(\phi) \\
+L3 =\cos(\phi)\cos(\theta)
+\end{bmatrix}
+\]
+
+Then we can get:
+
+\begin{equation}
+    \begin{aligned}
+        \theta&=\mathbf{atan2}(\mathbf{L1},\mathbf{L3})\\
+        \phi&=\mathbf{atan2}\bigl(-\mathbf{L2},\sqrt{\left(\mathbf{L1}+\mathbf{L}\mathbf{3}^2\right)}\bigr)
+    \end{aligned}
+\end{equation}
+
+

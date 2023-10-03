@@ -1,0 +1,36 @@
+\section{Problem 3}
+
+In this derivation, I have converted the complex frequency domain directly to the Z-domain
+
+Euler-backward discretization means:
+
+\begin{equation}\label{z}
+    \begin{aligned}
+        s = \frac{z-1}{zT}
+    \end{aligned}
+\end{equation}
+The original function is :
+
+\begin{equation}
+    \begin{aligned}
+        &\begin{array}{c}\theta=G(s)\theta_a(s)+(1-G(s))\theta_g(s)\end{array}\\
+        & \text{where\ } G(s)=\frac{1}{\alpha s+1}
+    \end{aligned}
+\end{equation}
+
+Replace all the $s$ with equation \ref{z}, we get:
+
+\begin{equation}
+    \begin{aligned}
+        &\theta(z)=\frac{z T}{\alpha(z-1)+z T}\theta_{a(z)}+\frac{\alpha z T}{\alpha(z-1)+z T}Y g(z)\\
+        &=-\alpha\theta(z)+\alpha\theta(z)+zT\theta z=T\theta_a(z+1)+\alpha TY g(z+1)\\
+        &=\theta(z+1)=\frac{\alpha}{\alpha+T}(\theta(z)+TY g(z+1))+\frac{T}{\alpha+T}\theta_{\alpha(z+1)}
+    \end{aligned}
+\end{equation}
+Which can be expressed as:
+\begin{equation}
+    \begin{aligned}
+        &\theta(k)=\gamma(\theta(k-1)+hYg(k))+(1-\gamma)\theta_a(k)\\
+        &\text{where\ } \gamma = \frac{\alpha}{\alpha+h} \text{and\ } h=T \text{\ (T is sample interval)}
+    \end{aligned}
+\end{equation}
